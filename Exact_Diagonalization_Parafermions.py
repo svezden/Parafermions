@@ -55,7 +55,7 @@ def Hamiltonian(N,t_perp):
     return Hamiltonian_0+Hamiltonian_int
 from scipy.sparse.linalg import eigs, eigsh
 with open("lowest_eigenvalues.txt", "w") as out_file:
-    for N in range(10,11):
+    for N in range(5,15):
         evals_large, evecs_large = eigsh(Hamiltonian(N,0.2), 80, which='LM')
         out_file.write("N=%d\n" % N)
         np.savetxt(out_file,np.sort(evals_large)[0:40],delimiter=',')
